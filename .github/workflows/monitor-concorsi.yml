@@ -67,6 +67,7 @@ jobs:
             echo "No seen links changes"
           else
             git commit -m "Update seen links"
+            git pull --rebase origin main
             git push
           fi
 
