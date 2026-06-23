@@ -21,18 +21,13 @@ def section(text, title):
 def read_project(path):
     text = path.read_text(encoding="utf-8")
     title = text.splitlines()[0].replace("#", "").strip()
-    sintesi = section(text, "Sintesi")
-    ruolo = section(text, "Ruolo svolto")
-    risultati = section(text, "Risultati")
-    impatto = section(text, "Impatto")
-    spendibilita = section(text, "Spendibilità concorsuale")
     return {
         "title": title,
-        "sintesi": sintesi,
-        "ruolo": ruolo,
-        "risultati": risultati,
-        "impatto": impatto,
-        "spendibilita": spendibilita,
+        "sintesi": section(text, "Sintesi"),
+        "ruolo": section(text, "Ruolo svolto"),
+        "risultati": section(text, "Risultati"),
+        "impatto": section(text, "Impatto"),
+        "spendibilita": section(text, "Spendibilità concorsuale"),
     }
 
 def main():
@@ -51,15 +46,15 @@ def main():
     lines.append("")
     lines.append("Profilo ibrido: comunicazione pubblica + tecnologie digitali + analisi dati + coordinamento operativo + processi amministrativi universitari.")
     lines.append("")
-
-    lines.append("## Posizionamento")
+    lines.append("## Posizionamento competitivo")
     lines.append("")
-    lines.append("- Capo Ufficio Redazione Web e Comunicazione Multimediale.")
-    lines.append("- Esperienza in portale istituzionale, social media, accessibilità, eventi online, contenuti multimediali e supporto alle strutture.")
-    lines.append("- Esperienza in progetti PNRR, AlmaLaurea/Alumni, public engagement, CINECA, portale e Intranet.")
-    lines.append("- Profilo orientato a ruoli EQ, responsabilità organizzative, comunicazione istituzionale, digitalizzazione e governance universitaria.")
+    lines.append("- Comunicazione istituzionale digitale: molto forte.")
+    lines.append("- Digital governance e portali: forte.")
+    lines.append("- Terza missione/public engagement: promettente, da rafforzare.")
+    lines.append("- Dati, orientamento, AlmaLaurea/Alumni: differenziante.")
+    lines.append("- Management pubblico: in crescita.")
+    lines.append("- Profilo dirigenziale: preparatorio, non ancora pienamente maturo.")
     lines.append("")
-
     lines.append("## Competenze chiave")
     lines.append("")
     lines.append("- Comunicazione istituzionale digitale")
@@ -73,9 +68,9 @@ def main():
     lines.append("- Trasparenza, privacy, anticorruzione, documenti informatici")
     lines.append("- IA generativa e workflow amministrativi")
     lines.append("")
-
     lines.append("## Progetti strategici")
     lines.append("")
+
     for p in projects:
         lines.append(f"### {p['title']}")
         lines.append("")
@@ -90,7 +85,7 @@ def main():
         lines.append(f"**Spendibilità:** {p['spendibilita']}")
         lines.append("")
 
-    lines.append("## Formula breve per candidatura")
+    lines.append("## Formula breve per candidature")
     lines.append("")
     lines.append(
         "Funzionario universitario con esperienza nel coordinamento di processi di comunicazione istituzionale digitale, "
@@ -98,7 +93,6 @@ def main():
         "e innovazione organizzativa nella PA. Profilo orientato a ruoli di responsabilità nell'intersezione tra comunicazione, digitale, dati e governance universitaria."
     )
     lines.append("")
-
     lines.append("## Gap da rafforzare")
     lines.append("")
     lines.append("- Diritto amministrativo avanzato")

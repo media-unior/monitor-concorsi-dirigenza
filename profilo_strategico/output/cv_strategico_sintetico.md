@@ -6,12 +6,14 @@ Funzionario universitario e Capo Ufficio nell'area comunicazione digitale, speci
 
 Profilo ibrido: comunicazione pubblica + tecnologie digitali + analisi dati + coordinamento operativo + processi amministrativi universitari.
 
-## Posizionamento
+## Posizionamento competitivo
 
-- Capo Ufficio Redazione Web e Comunicazione Multimediale.
-- Esperienza in portale istituzionale, social media, accessibilità, eventi online, contenuti multimediali e supporto alle strutture.
-- Esperienza in progetti PNRR, AlmaLaurea/Alumni, public engagement, CINECA, portale e Intranet.
-- Profilo orientato a ruoli EQ, responsabilità organizzative, comunicazione istituzionale, digitalizzazione e governance universitaria.
+- Comunicazione istituzionale digitale: molto forte.
+- Digital governance e portali: forte.
+- Terza missione/public engagement: promettente, da rafforzare.
+- Dati, orientamento, AlmaLaurea/Alumni: differenziante.
+- Management pubblico: in crescita.
+- Profilo dirigenziale: preparatorio, non ancora pienamente maturo.
 
 ## Competenze chiave
 
@@ -88,7 +90,7 @@ Profilo ibrido: comunicazione pubblica + tecnologie digitali + analisi dati + co
 
 **Spendibilità:** Alta per bandi su terza missione, public engagement, innovazione, comunicazione istituzionale e relazioni con il territorio.
 
-## Formula breve per candidatura
+## Formula breve per candidature
 
 Funzionario universitario con esperienza nel coordinamento di processi di comunicazione istituzionale digitale, reingegnerizzazione di portali, governance dei flussi informativi, accessibilità, public engagement, gestione dati e innovazione organizzativa nella PA. Profilo orientato a ruoli di responsabilità nell'intersezione tra comunicazione, digitale, dati e governance universitaria.
 
