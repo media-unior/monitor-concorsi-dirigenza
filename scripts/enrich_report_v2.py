@@ -160,6 +160,61 @@ def load_selected_rows():
             rows.append(data)
     return rows
 
+
+def crop_field(value):
+    value = clean(value or "")
+    stop_words = [
+        " Questo sito", " Area geografica:", " Valutazione:", " Stato:",
+        " Data apertura", " Data chiusura", " Numero posti",
+        " Tipologia", " Candidati"
+    ]
+    for stop in stop_words:
+        if stop in value:
+            value = value.split(stop, 1)[0]
+    return value.strip(" :-–—")[:140] or "DA_VERIFICARE"
+
+def extract_first(patterns, text):
+    import re
+    text = clean(text or "")
+    for pattern in patterns:
+        m = re.search(pattern, text, flags=re.IGNORECASE)
+        if m:
+            value = crop_field(m.group(1))
+            if value and value != "DA_VERIFICARE":
+                return value
+    return "DA_VERIFICARE"
+
+def extract_metadata(title, detail):
+    import re
+
+    full = clean((title or "") + " " + (detail or ""))
+
+    ente = extract_first([
+        r"(Università degli Studi di [A-ZÀ-Üa-zà-ü'’ ]+)",
+        r"(Università di [A-ZÀ-Üa-zà-ü'’ ]+)",
+        r"(Politecnico di [A-ZÀ-Üa-zà-ü'’ ]+)",
+        r"(?:Ente|Amministrazione|Ateneo)\s*[:\-–]\s*([^\n\r]+)",
+        r"presso\s+(l['’]Università[^,\n\r\.]+)",
+    ], full)
+
+    sede = extract_first([
+        r"\(([A-ZÀ-Üa-zà-ü'’ ]{3,60})\)\s+Numero posti",
+        r"(?:Sede di lavoro|Luogo di lavoro|Comune)\s*[:\-–]\s*([^\n\r]+)",
+        r"(?:presso la sede di|sede presso)\s+([^,\n\r]+)",
+    ], full)
+
+    scadenza = extract_first([
+        r"Data chiusura candidature\s*[:\-–]?\s*([0-9]{1,2}\s+[A-ZÀ-Üa-zà-ü]+\s+[0-9]{4}(?:\s+[0-9]{1,2}[:\.][0-9]{2})?)",
+        r"(?:Scadenza|Data scadenza|Termine presentazione domande|Termine per la presentazione delle domande)\s*[:\-–]\s*([0-9]{1,2}[\/\.-][0-9]{1,2}[\/\.-][0-9]{4}(?:\s*[0-9]{1,2}[:\.][0-9]{2})?)",
+        r"(?:entro il|scade il|fino al)\s*([0-9]{1,2}[\/\.-][0-9]{1,2}[\/\.-][0-9]{4}(?:\s*[0-9]{1,2}[:\.][0-9]{2})?)",
+    ], full)
+
+    return {
+        "ente": ente,
+        "sede": sede,
+        "scadenza": scadenza,
+    }
+
 def main():
     rows = load_selected_rows()
     lines = []
@@ -191,9 +246,14 @@ def main():
             why = why_coherent(title, detail)
             study = study_topics(title, detail)
             priority = final_priority(eval_label, dist_label, prestige_label)
+            meta = extract_metadata(title, detail)
 
             lines.append(f"{n}. {priority} | {eval_label} | {classe} | Score {score}")
             lines.append(title)
+            lines.append("")
+            lines.append(f"Ente: {meta['ente']}")
+            lines.append(f"Sede reale: {meta['sede']}")
+            lines.append(f"Scadenza: {meta['scadenza']}")
             lines.append("")
             lines.append(f"Perché coerente: {why}")
             lines.append(f"Cosa studiare: {study}")
