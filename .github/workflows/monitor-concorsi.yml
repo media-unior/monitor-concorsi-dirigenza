@@ -46,6 +46,7 @@ jobs:
           python scripts/monitor_v2.py >> logs/monitor_v2.log 2>&1 || ERROR=1
           python scripts/enrich_report_v2.py >> logs/enrich.log 2>&1 || ERROR=1
           python profilo_strategico/scripts/aggiorna_bandi_followup.py 2>&1 | tee -a logs/followup.log || ERROR=1
+          python profilo_strategico/scripts/report_followup_due.py 2>&1 | tee -a logs/followup_due.log || ERROR=1
           python scripts/send_report_email.py >> logs/mail.log 2>&1 || ERROR=1
 
           if [ "$ERROR" -ne 0 ]; then
