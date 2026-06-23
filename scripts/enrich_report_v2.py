@@ -161,6 +161,30 @@ def load_selected_rows():
     return rows
 
 
+def metadata_quality(meta):
+    ente = meta.get("ente", "DA_VERIFICARE")
+    sede = meta.get("sede", "DA_VERIFICARE")
+    scadenza = meta.get("scadenza", "DA_VERIFICARE")
+
+    parts = []
+
+    if ente != "DA_VERIFICARE":
+        parts.append("ente: estratto")
+    else:
+        parts.append("ente: da verificare")
+
+    if sede != "DA_VERIFICARE":
+        parts.append("sede: estratta")
+    else:
+        parts.append("sede: da verificare")
+
+    if scadenza != "DA_VERIFICARE":
+        parts.append("scadenza: estratta")
+    else:
+        parts.append("scadenza: da verificare")
+
+    return "; ".join(parts)
+
 def practical_action(eval_label, dist_label, classe):
     eval_label = str(eval_label or "")
     dist_label = str(dist_label or "")
@@ -274,6 +298,7 @@ def main():
             lines.append(f"Ente: {meta['ente']}")
             lines.append(f"Sede reale: {meta['sede']}")
             lines.append(f"Scadenza: {meta['scadenza']}")
+            lines.append(f"Fonte dati: {metadata_quality(meta)}")
             lines.append(f"Azione pratica: {practical_action(eval_label, dist_label, classe)}")
             lines.append("")
             lines.append(f"Perché coerente: {why}")
