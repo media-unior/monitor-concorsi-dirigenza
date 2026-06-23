@@ -161,6 +161,26 @@ def load_selected_rows():
     return rows
 
 
+def practical_action(eval_label, dist_label, classe):
+    eval_label = str(eval_label or "")
+    dist_label = str(dist_label or "")
+    classe = str(classe or "")
+
+    if eval_label == "CANDIDARSI":
+        if "ALTA_PENALITA" in dist_label:
+            return "Valutare candidatura solo se profilo molto coerente; verificare sede, smart working, mobilità e sostenibilità logistica."
+        return "Aprire il bando, verificare requisiti, preparare candidatura e adattare CV target."
+
+    if eval_label == "STUDIARE_SERIAMENTE":
+        if classe == "DIRIGENTE":
+            return "Scaricare bando e requisiti; usarlo come benchmark per profilo dirigenziale, prove e gap da colmare."
+        return "Studiare requisiti e prove; valutare candidatura solo dopo verifica logistica e requisiti."
+
+    if eval_label == "STUDIARE":
+        return "Archiviare come caso studio; estrarre materie, requisiti e lessico utile per preparazione."
+
+    return "Monitorare senza azione immediata."
+
 def crop_field(value):
     value = clean(value or "")
     stop_words = [
@@ -254,6 +274,7 @@ def main():
             lines.append(f"Ente: {meta['ente']}")
             lines.append(f"Sede reale: {meta['sede']}")
             lines.append(f"Scadenza: {meta['scadenza']}")
+            lines.append(f"Azione pratica: {practical_action(eval_label, dist_label, classe)}")
             lines.append("")
             lines.append(f"Perché coerente: {why}")
             lines.append(f"Cosa studiare: {study}")
