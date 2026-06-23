@@ -1,0 +1,19 @@
+{
+  "include": [
+    "dirigente", "dirigenziale", "università", "ateneo",
+    "comunicazione", "relazioni esterne", "public engagement",
+    "terza missione", "trasformazione digitale", "digitalizzazione",
+    "sistemi informativi", "portale", "web", "innovazione",
+    "governance", "valore pubblico", "performance", "funzionario", "elevata qualificazione", "area amministrativa", "management", "ricerca", "didattica", "internazionalizzazione"
+  ],
+  "exclude": [
+    "dirigente medico", "dirigente sanitario", "dirigente veterinario",
+    "dirigente scolastico", "polizia", "vigili", "mobilità volontaria",
+    "mobilita volontaria"
+  ],
+  "sources": [
+    "https://www.gazzettaufficiale.it/30giorni/concorsi",
+    "https://www.inpa.gov.it/bandi-e-avvisi/",
+    "https://www.codau.it/"
+  ]
+}
