@@ -1,5 +1,12 @@
 import re
 from pathlib import Path
+
+import sys
+PROFILE_SCRIPTS = Path(__file__).resolve().parents[1] / "profilo_strategico" / "scripts"
+if str(PROFILE_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(PROFILE_SCRIPTS))
+from cv_selector_core import choose_cv
+
 from openpyxl import load_workbook
 from playwright.sync_api import sync_playwright
 
@@ -192,7 +199,11 @@ def main():
             lines.append(f"Cosa studiare: {study}")
             lines.append(f"Prestigio: {prestige_label}")
             lines.append(f"Distanza/logistica da {HOME}: {dist_label} - {dist_note}")
-            lines.append(f"Link: {link}")
+            cv_info = choose_cv(title)
+        lines.append(f"CV consigliato: {cv_info['cv']}")
+        lines.append("Progetti da evidenziare: " + "; ".join(cv_info["projects"]))
+        lines.append("Gap da coprire: " + "; ".join(cv_info["gaps"]))
+        lines.append(f"Link: {link}")
             lines.append("-" * 70)
             lines.append("")
 
