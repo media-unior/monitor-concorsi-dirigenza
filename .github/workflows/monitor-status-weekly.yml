@@ -1,0 +1,52 @@
+name: Monitor Concorsi Weekly Status
+
+on:
+  schedule:
+    - cron: "00 08 * * 1"
+  workflow_dispatch:
+
+jobs:
+  weekly-status:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements_cloud.txt
+
+      - name: Prepare folders
+        run: mkdir -p logs output data
+
+      - name: Run monitor pipeline
+        env:
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          SMTP_TO: ${{ secrets.SMTP_TO }}
+        run: |
+          ERROR=0
+          python scripts/monitor_concorsi.py >> logs/monitor.log 2>&1 || ERROR=1
+          python scripts/monitor_v2.py >> logs/monitor_v2.log 2>&1 || ERROR=1
+          python scripts/enrich_report_v2.py >> logs/enrich.log 2>&1 || ERROR=1
+
+          if [ "$ERROR" -ne 0 ]; then
+            python scripts/send_error_email.py >> logs/mail_error.log 2>&1
+            exit 1
+          fi
+
+          python scripts/send_weekly_status_email.py >> logs/mail.log 2>&1
+
+      - name: Upload outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: monitor-weekly-status-output
+          path: |
+            output/
+            logs/
