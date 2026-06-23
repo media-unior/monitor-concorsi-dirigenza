@@ -40,3 +40,40 @@ Azioni:
 - 10 schede studio;
 - 5 simulazioni risposta concorsuale;
 - elenco incarichi/progetti interni da cercare.
+
+## Aggiornamento da profilo reale
+
+### Posizionamento corretto
+Il profilo non va orientato solo a comunicazione, ma a ruoli di raccordo tra:
+- comunicazione istituzionale;
+- digital governance;
+- dati e portali;
+- public engagement;
+- processi amministrativi universitari;
+- innovazione nella PA.
+
+### Azioni immediate
+1. Creare portfolio di 5 progetti:
+   - Portale di Ateneo / CINECA;
+   - Redazione Web e Comunicazione Multimediale;
+   - AlmaLaurea / Alumni;
+   - USCEM / PNRR;
+   - Infiniti Mondi / Terza Missione.
+
+2. Per ogni progetto indicare:
+   - problema iniziale;
+   - ruolo svolto;
+   - stakeholder;
+   - strumenti;
+   - risultato;
+   - impatto misurabile;
+   - competenze trasferibili a EQ/dirigenza.
+
+3. Rafforzare CV su tre parole chiave:
+   - coordinamento;
+   - responsabilità;
+   - risultati.
+
+4. Evitare narrazione troppo tecnica o freelance.
+   La narrazione deve essere manageriale-amministrativa:
+   "governo di processi digitali e comunicativi in amministrazione universitaria".
