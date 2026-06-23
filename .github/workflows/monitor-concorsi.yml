@@ -45,6 +45,7 @@ jobs:
           python scripts/monitor_concorsi.py >> logs/monitor.log 2>&1 || ERROR=1
           python scripts/monitor_v2.py >> logs/monitor_v2.log 2>&1 || ERROR=1
           python scripts/enrich_report_v2.py >> logs/enrich.log 2>&1 || ERROR=1
+          python profilo_strategico/scripts/aggiorna_bandi_followup.py >> logs/followup.log 2>&1 || ERROR=1
           python scripts/send_report_email.py >> logs/mail.log 2>&1 || ERROR=1
 
           if [ "$ERROR" -ne 0 ]; then
@@ -76,3 +77,5 @@ jobs:
           path: |
             output/
             logs/
+            profilo_strategico/output/
+            profilo_strategico/data/bandi_followup.csv
