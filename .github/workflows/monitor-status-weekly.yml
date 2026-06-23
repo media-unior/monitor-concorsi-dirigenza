@@ -42,7 +42,7 @@ jobs:
             exit 1
           fi
 
-          python scripts/send_weekly_status_email.py >> logs/mail.log 2>&1
+          python scripts/send_weekly_status_email.py 2>&1 | tee -a logs/mail.log
 
       - name: Upload outputs
         if: always()
