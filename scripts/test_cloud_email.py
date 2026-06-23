@@ -8,6 +8,10 @@ smtp_user = os.environ["SMTP_USER"].strip()
 smtp_pass = os.environ["SMTP_PASS"].strip()
 smtp_to = os.environ["SMTP_TO"].strip()
 
+print("SMTP_USER length:", len(smtp_user))
+print("SMTP_USER domain:", smtp_user.split("@")[-1] if "@" in smtp_user else "NO_AT")
+print("SMTP_TO domain:", smtp_to.split("@")[-1] if "@" in smtp_to else "NO_AT")
+
 msg = EmailMessage()
 msg["Subject"] = "TEST GitHub Actions - monitor concorsi"
 msg["From"] = smtp_user
