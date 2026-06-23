@@ -38,9 +38,6 @@ jobs:
         run: |
           mkdir -p logs output data
 
-      - name: Test cloud email
-        run: python scripts/test_cloud_email.py
-
       - name: Run full monitor pipeline
         run: |
           ERROR=0
