@@ -151,13 +151,16 @@ print(f"File: {OUT}")
 new_relevant = [r for r in unique if r[6] in ["ALTA", "MEDIA"] and r[10] == "NUOVO"]
 
 if new_relevant:
+    import platform
     import subprocess
-    title = "Nuovi concorsi dirigenza"
-    message = f"Trovati {len(new_relevant)} nuovi bandi utili. Apri concorsi_dirigenza_UTILI.xlsx"
-    subprocess.run([
-        "osascript", "-e",
-        f'display notification "{message}" with title "{title}"'
-    ])
+
+    if platform.system() == "Darwin":
+        title = "Nuovi concorsi dirigenza"
+        message = f"Trovati {len(new_relevant)} nuovi bandi utili. Apri concorsi_dirigenza_UTILI.xlsx"
+        subprocess.run([
+            "osascript", "-e",
+            f'display notification "{message}" with title "{title}"'
+        ])
 
 print("Match MEDIO/ALTO:")
 for r in unique:
