@@ -66,6 +66,7 @@ jobs:
             echo "No seen links changes"
           else
             git commit -m "Update seen links"
+            git stash push --include-untracked --message "workflow-generated-files" || true
             git pull --rebase origin main
             git push
           fi
