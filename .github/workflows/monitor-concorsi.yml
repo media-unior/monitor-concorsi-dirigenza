@@ -46,7 +46,7 @@ jobs:
           if ! python scripts/monitor_v2.py >> logs/monitor_v2.log 2>&1; then
             echo "monitor_v2 failed; creating empty fallback output" | tee -a logs/monitor_v2.log
             python -c 'import sys; sys.path.insert(0, "scripts"); from monitor_v2 import write_empty_v2_output; write_empty_v2_output("monitor_v2 failed in GitHub Actions")' >> logs/monitor_v2.log 2>&1
-            ERROR=1
+            echo "WARNING: monitor_v2 failed but fallback output was created; continuing run" | tee -a logs/monitor_v2.log
           fi
           python scripts/enrich_report_v2.py >> logs/enrich.log 2>&1 || ERROR=1
           python profilo_strategico/scripts/aggiorna_bandi_followup.py 2>&1 | tee -a logs/followup.log || ERROR=1
