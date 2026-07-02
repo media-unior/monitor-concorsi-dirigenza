@@ -43,7 +43,16 @@ jobs:
           ERROR=0
 
           python scripts/monitor_concorsi.py >> logs/monitor.log 2>&1 || ERROR=1
-          python scripts/monitor_v2.py >> logs/monitor_v2.log 2>&1 || ERROR=1
+          if ! python scripts/monitor_v2.py >> logs/monitor_v2.log 2>&1; then
+            echo "monitor_v2 failed; creating empty fallback output" | tee -a logs/monitor_v2.log
+            python - <<'PYFALLBACK' >> logs/monitor_v2.log 2>&1
+import sys
+sys.path.insert(0, "scripts")
+from monitor_v2 import write_empty_v2_output
+write_empty_v2_output("monitor_v2 failed in GitHub Actions")
+PYFALLBACK
+            ERROR=1
+          fi
           python scripts/enrich_report_v2.py >> logs/enrich.log 2>&1 || ERROR=1
           python profilo_strategico/scripts/aggiorna_bandi_followup.py 2>&1 | tee -a logs/followup.log || ERROR=1
           python profilo_strategico/scripts/report_followup_due.py 2>&1 | tee -a logs/followup_due.log || ERROR=1
