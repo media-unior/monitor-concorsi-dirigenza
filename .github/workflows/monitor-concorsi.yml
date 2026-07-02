@@ -5,6 +5,9 @@ on:
     - cron: "00 11 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   monitor:
     runs-on: ubuntu-latest
@@ -42,12 +45,7 @@ jobs:
           python scripts/monitor_concorsi.py >> logs/monitor.log 2>&1 || ERROR=1
           if ! python scripts/monitor_v2.py >> logs/monitor_v2.log 2>&1; then
             echo "monitor_v2 failed; creating empty fallback output" | tee -a logs/monitor_v2.log
-            python - <<'PYFALLBACK' >> logs/monitor_v2.log 2>&1
-import sys
-sys.path.insert(0, "scripts")
-from monitor_v2 import write_empty_v2_output
-write_empty_v2_output("monitor_v2 failed in GitHub Actions")
-PYFALLBACK
+            python -c 'import sys; sys.path.insert(0, "scripts"); from monitor_v2 import write_empty_v2_output; write_empty_v2_output("monitor_v2 failed in GitHub Actions")' >> logs/monitor_v2.log 2>&1
             ERROR=1
           fi
           python scripts/enrich_report_v2.py >> logs/enrich.log 2>&1 || ERROR=1
