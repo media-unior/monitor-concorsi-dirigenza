@@ -361,6 +361,16 @@ https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?at
 https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-07-28&atto.codiceRedazionale=26E04134
 https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-07-28&atto.codiceRedazionale=26E04152
 https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-07-28&atto.codiceRedazionale=26E04350
+https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-07-31&atto.codiceRedazionale=26E03987
+https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-07-31&atto.codiceRedazionale=26E03988
+https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-07-31&atto.codiceRedazionale=26E04090
+https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-07-31&atto.codiceRedazionale=26E04117
+https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-07-31&atto.codiceRedazionale=26E04118
+https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-07-31&atto.codiceRedazionale=26E04125
+https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-07-31&atto.codiceRedazionale=26E04126
+https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-07-31&atto.codiceRedazionale=26E04128
+https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-07-31&atto.codiceRedazionale=26E04176
+https://www.gazzettaufficiale.it/atto/concorsi/caricaDettaglioAtto/originario?atto.dataPubblicazioneGazzetta=2026-07-31&atto.codiceRedazionale=26E04197
 https://www.unibo.it/it/ateneo/lavora-con-noi/bandi-e-avvisi-ta/2026/bando-ta-rif-3421
 https://www.unibo.it/it/ateneo/lavora-con-noi/bandi-e-avvisi-ta/2026/bando-ta-rif-3684
 https://www.unibo.it/it/ateneo/lavora-con-noi/bandi-e-avvisi-ta/2026/bando-ta-rif-3685
